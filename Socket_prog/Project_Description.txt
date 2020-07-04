@@ -1,0 +1,46 @@
+
+                                                                               : SOCKET PROGRAMMED MULTIPLAYER GAME SHOW :
+
+
+PROJECT OVERVIEW :
+
+This is an implementation of quiz show using socket programming(python). The show host runs the server.py file, then the clients run client.py on their screens. The questions are multiple choice type and the participent is expected to type the option which he chooses to go with after he presses the buzzer first. The first one to press the buzzer is allowed to answer the quiz question and marks are awarded/reduced based on the validity of his answer. The game ends when one of the three participents get 5 points.And then the players are requested to leave on their own and leave their seats.(or press ctrl + z)
+Every function and important task is commented in both server.py and client.py file.
+
+
+ASSUMPTIONS :
+
+Points are not displayed at the end of every point scored/lost, just to discourage and tense the participents.
+Points of the winner is displayed whenever a termination condition is met
+The participents are expected to quit on their own when the quiz ends (It would be rude to dismiss without their acknowledgement)
+
+
+PROJECT CODE INSTRUCTIONS AND BREIF EXPLANATION :
+
+First of all, the host should setup the server.py file (Run in the format described below)
+Run this command on your terminal after going into the directory in which the files are stored `python server.py <Your IP Address> <Any Port number>` for the host,(Use python 2.7 or python, Not python 3)
+Ex : python server.py 127.0.0.1 9876
+
+and then all the three participents are required to join by running client.py file in their terminals.
+Run this command on your terminal after going into the directory in which the files are stored `python client.py <Your IP Address> <Any Port number>` for the participents..
+
+After all of them join the program, the quiz is started(This is the quiz() function). The First one to press the buzzer(This is done by entering any input and pressing enter) is selected and given the chance to answer the question (The questions are randomly generated from a set of questions_list usinf randint in python). He is given 10 seconds(This is done by the fourth argument in select.select in client.py file) to answer the question, if the answer turns out to be right, he is given +1 points and if not, 0.5 marks will be reduced from his score. The first one to reach 5 Points Wins the game. 
+Then end_quiz function is initiated.
+
+
+RESOURCES :
+
+https://stackoverflow.com/questions/34984443/using-select-method-for-client-server-chat-in-python
+
+https://www.geeksforgeeks.org/simple-chat-room-using-python/
+
+https://www.youtube.com/watch?v=6jteAOmdsYg&list=PLhTjy8cBISErYuLZUvVOYsR1giva2payF
+
+https://github.com/DaKeiser/SocketQuiz
+
+https://docs.python.org/3/library/socket.html
+
+Computer Networking: A Top-Down Approach by Kurose and Ross (Book)
+
+** Note that sometimes due to irregular circumstances and errors in the execution the winning count goes on till 20, but most of the time, it works **
+** It is requested to use a different ip and port than previously used on terminal, as it shows an ERRNO error if used again and again, if it is not possible to use another ip,port restarting the pc will do the job. **
